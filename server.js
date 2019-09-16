@@ -1,7 +1,23 @@
 const express = require("express");
-const app = express();
-const router = express.Router();
 const path = require("path");
+const moment = require("moment");
+
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+const logger = (req, res, next) => {
+  console.log(
+    `${req.protocol}://${req.get("host")}${
+      req.originalUrl
+    } at ${moment().format()}`
+  );
+  next();
+};
+
+app.use("/api/blogposts", require("./routes"));
+
+app.use(logger);
 
 app.get("/", (req, res) => {
   res.send("hi");
