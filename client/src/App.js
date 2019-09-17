@@ -4,9 +4,9 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./Components/Header";
-import Blog from "./Components/Blog";
 import About from "./Components/About";
 import Blogs from "./Components/Blogs";
+import BlogSite from "./Components/BlogSite";
 
 function App() {
   return (
@@ -17,7 +17,10 @@ function App() {
           <Route path="/about" exact component={About} />
           <Route path="/" exact component={Home} />
           <Route path="/blogs" exact component={Blogs} />
-          <Route path="/blogs/:id" component={Blog} />
+          <Route path="/blogs/:id" component={BlogSite} />
+        </Switch>
+        <Switch>
+          {/* <Route path="/blogs/:id" component={CommentForm} /> */}
         </Switch>
       </div>
     </Router>

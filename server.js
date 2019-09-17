@@ -17,7 +17,7 @@ const logger = (req, res, next) => {
   next();
 };
 
-app.use("/api/blogposts", require("./routes"));
+app.use("/api/blogposts", require("./routes/routes"));
 
 app.use(logger);
 

@@ -1,60 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "Happy Feet",
-    body: "Wombo Combo",
-    comments: [
-      {
-        name: "Damn Son",
-        comment: "OH OHHH OHHHH"
-      }
-    ],
-    date: new Date()
-  },
-  {
-    id: 2,
-    title: "Happy Feet",
-    body: "Wombo Combo",
-    comments: [
-      {
-        name: "Damn Son",
-        comment: "OH OHHH OHHHH"
-      },
-      {
-        name: "Damn Son",
-        comment: "OH OHHH OHHHH"
-      },
-      {
-        name: "Damn Son",
-        comment: "OH OHHH OHHHH"
-      }
-    ],
-    date: new Date()
-  },
-  {
-    id: 3,
-    title: "Cool Blog",
-    body: "Lorem Ipsum sucks",
-    comments: [
-      {
-        name: "Damn Son",
-        comment: "OH OHHH OHHHH"
-      },
-      {
-        name: "Damn Son",
-        comment: "OH OHHH OHHHH"
-      },
-      {
-        name: "Damn Son",
-        comment: "OH OHHH OHHHH"
-      }
-    ],
-    date: new Date()
-  }
-];
+const blogPosts = require("../blogpostExamples");
 
 router.get("/", (req, res) => {
   res.json(blogPosts);
@@ -66,7 +12,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   const newMember = {
-    id: Math.floor(Math.random() * 500000000000000),
+    id: randomID(),
     title: req.body.title,
     body: req.body.body,
     comments: req.body.comments,
@@ -90,6 +36,7 @@ router.get("/:id/comments", (req, res) => {
 
 router.post("/:id/comments", (req, res) => {
   const newComment = {
+    id: randomID(),
     name: req.body.name,
     comment: req.body.comment,
     date: new Date()
@@ -101,5 +48,9 @@ router.post("/:id/comments", (req, res) => {
     .filter(post => post.id === parseInt(req.params.id))[0]
     .comments.push(newComment);
 });
+
+const randomID = () => {
+  return Math.floor(Math.random() * 500000000000000);
+};
 
 module.exports = router;
