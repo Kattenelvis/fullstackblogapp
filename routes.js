@@ -33,6 +33,26 @@ const blogPosts = [
       }
     ],
     date: new Date()
+  },
+  {
+    id: 3,
+    title: "Cool Blog",
+    body: "Lorem Ipsum sucks",
+    comments: [
+      {
+        name: "Damn Son",
+        comment: "OH OHHH OHHHH"
+      },
+      {
+        name: "Damn Son",
+        comment: "OH OHHH OHHHH"
+      },
+      {
+        name: "Damn Son",
+        comment: "OH OHHH OHHHH"
+      }
+    ],
+    date: new Date()
   }
 ];
 

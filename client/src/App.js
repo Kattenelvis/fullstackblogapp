@@ -1,17 +1,31 @@
 import React from "react";
 import "./App.css";
-import axios from "axios";
 
-const getData = () => {
-  axios
-    .get("http://localhost:5000/api/blogposts")
-    .then(data => console.log(data.data));
-};
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-getData();
+import Header from "./Components/Header";
+import Blog from "./Components/Blog";
+import About from "./Components/About";
+import Blogs from "./Components/Blogs";
 
 function App() {
-  return <div className="App">Hello WOrld</div>;
+  return (
+    <Router>
+      <div className="App">
+        <Header />
+        <Switch>
+          <Route path="/about" exact component={About} />
+          <Route path="/" exact component={Home} />
+          <Route path="/blogs" exact component={Blogs} />
+          <Route path="/blogs/:id" component={Blog} />
+        </Switch>
+      </div>
+    </Router>
+  );
 }
+
+const Home = () => {
+  return <div>SWEET HOME ALABAMA</div>;
+};
 
 export default App;
