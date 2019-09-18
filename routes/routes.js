@@ -15,7 +15,7 @@ router.post("/", (req, res) => {
     id: randomID(),
     title: req.body.title,
     body: req.body.body,
-    comments: req.body.comments,
+    comments: [],
     views: 6861,
     date: new Date()
   };

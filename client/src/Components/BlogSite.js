@@ -27,7 +27,9 @@ function BlogSite({ match }) {
 
   const getData = async () => {
     const { data } = await Axios.get(`${baseURL}${match.params.id}`);
-    setBlog(data[0]);
+    if (data[0] !== undefined) {
+      setBlog(data[0]);
+    }
   };
 
   useEffect(() => {
