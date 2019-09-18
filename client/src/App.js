@@ -7,6 +7,7 @@ import Header from "./Components/Header";
 import About from "./Components/About";
 import Blogs from "./Components/Blogs";
 import BlogSite from "./Components/BlogSite";
+import Editor from "./Components/Editor";
 
 function App() {
   return (
@@ -18,9 +19,7 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/blogs" exact component={Blogs} />
           <Route path="/blogs/:id" component={BlogSite} />
-        </Switch>
-        <Switch>
-          {/* <Route path="/blogs/:id" component={CommentForm} /> */}
+          <Route path="/editor" component={Editor} />
         </Switch>
       </div>
     </Router>

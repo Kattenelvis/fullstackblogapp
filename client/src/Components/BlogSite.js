@@ -4,6 +4,8 @@ import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import Axios from "axios";
 
+const baseURL = "http://localhost:5000/api/blogposts/";
+
 function BlogSite({ match }) {
   const [blog, setBlog] = useState({});
 
@@ -13,20 +15,19 @@ function BlogSite({ match }) {
 
   const commentSubmit = e => {
     e.preventDefault();
-    Axios.post(
-      `http://localhost:5000/api/blogposts/${match.params.id}/comments`,
-      {
-        name: e.target[0].value,
-        comment: e.target[1].value
-      }
-    );
+
+    const name = e.target[0].value;
+    const comment = e.target[1].value;
+
+    Axios.post(`${baseURL}${match.params.id}/comments`, {
+      name,
+      comment
+    }).then(res => getData());
   };
 
   const getData = async () => {
-    const data = await Axios.get(
-      `http://localhost:5000/api/blogposts/${match.params.id}`
-    );
-    setBlog(data.data[0]);
+    const { data } = await Axios.get(`${baseURL}${match.params.id}`);
+    setBlog(data[0]);
   };
 
   useEffect(() => {
