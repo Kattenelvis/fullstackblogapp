@@ -1,40 +1,45 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Blog from "./Blog";
 import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import Axios from "axios";
 
-class BlogSite extends Component {
-  state = { blog: {} };
+function BlogSite({ match }) {
+  const [blog, setBlog] = useState({});
 
-  changeComments = blog => {
-    this.setState({ blog });
+  const changeComments = blog => {
+    setBlog(blog);
   };
 
-  commentSubmit = e => {
+  const commentSubmit = e => {
     e.preventDefault();
     Axios.post(
-      `http://localhost:5000/api/blogposts/${this.state.blog.id}/comments`,
-      { name: e.target[0].value, comment: e.target[1].value }
-    ).then(res => {
-      console.log(res);
-      this.state.blog.comments.push();
-      this.changeComments(this.state.blog);
-    });
+      `http://localhost:5000/api/blogposts/${match.params.id}/comments`,
+      {
+        name: e.target[0].value,
+        comment: e.target[1].value
+      }
+    );
   };
 
-  render() {
-    return (
-      <div className="BlogSite">
-        <Blog
-          id={this.props.match.params.id}
-          changeComments={this.changeComments.bind(this)}
-        />
-        <Comments comments={this.state.blog.comments} />
-        <CommentForm commentSubmit={this.commentSubmit.bind(this)} />
-      </div>
+  const getData = async () => {
+    const data = await Axios.get(
+      `http://localhost:5000/api/blogposts/${match.params.id}`
     );
-  }
+    setBlog(data.data[0]);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  return (
+    <div className="BlogSite">
+      <Blog blog={blog} changeComments={changeComments.bind(this)} />
+      <Comments comments={blog.comments} />
+      <CommentForm commentSubmit={commentSubmit.bind(this)} />
+    </div>
+  );
 }
 
 export default BlogSite;
