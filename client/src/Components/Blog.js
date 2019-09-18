@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-export default function Blog({ id }) {
+export default function Blog({ id, changeComments }) {
   const [blog, setBlog] = useState({});
-
   const getData = async () => {
     const data = await fetch(`http://localhost:5000/api/blogposts/${id}`);
     const fetchedBlog = await data.json();
     setBlog(fetchedBlog[0]);
+    changeComments(fetchedBlog[0].comments);
   };
 
   useEffect(() => {
