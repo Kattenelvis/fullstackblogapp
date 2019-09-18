@@ -8,17 +8,15 @@ export default function Editor() {
     document.execCommand("styleWithCSS");
     let color = e.target.value;
     document.execCommand("foreColor", false, color);
-  };
-
-  const bold = e => {
-    document.execCommand("bold");
+    setFocus();
   };
 
   window.addEventListener(
     "load",
     () => {
       document.querySelector("#bold").addEventListener("click", () => {
-        document.execCommand("Bold", false, null);
+        document.execCommand("Bold");
+        setFocus();
       });
     },
     false
@@ -33,14 +31,18 @@ export default function Editor() {
     Axios.post(baseURL, { title, body });
   };
 
+  const setFocus = () => {
+    document.getElementById("textField").focus();
+  };
+
   return (
     <div>
       <form onSubmit={publishBlog}>
         <input type="color" onChange={changeColor} />
-        <input id="bold" type="button" onChange={bold} value="B" />
+        <input id="bold" type="button" value="B" />
         <label>
           Title:
-          <input />
+          <input required />
         </label>
         <div
           id="textField"
