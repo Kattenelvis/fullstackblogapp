@@ -57,6 +57,14 @@ const blogPosts = [
       }
     ],
     date: new Date()
+  },
+  {
+    id: 4,
+    title: "Test",
+    body: `I am simuilatin<span style="color: rgb(177, 148, 29);">g w</span><span style="color: rgb(70, 136, 98);"><span style="color: rgb(177, 148, 29);">hat would h</span>appen if bal hbalh</span><br>
+    2019-09-18T14:56:46.217Z`,
+    comments: [],
+    date: new Date()
   }
 ];
 

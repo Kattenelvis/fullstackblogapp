@@ -9,10 +9,6 @@ const baseURL = "http://localhost:5000/api/blogposts/";
 function BlogSite({ match }) {
   const [blog, setBlog] = useState({});
 
-  const changeComments = blog => {
-    setBlog(blog);
-  };
-
   const commentSubmit = e => {
     e.preventDefault();
 
@@ -28,6 +24,8 @@ function BlogSite({ match }) {
   const getData = async () => {
     const { data } = await Axios.get(`${baseURL}${match.params.id}`);
     if (data[0] !== undefined) {
+      const blogb = document.getElementById("blogBody");
+      blogb.innerHTML = data[0].body;
       setBlog(data[0]);
     }
   };
@@ -38,7 +36,7 @@ function BlogSite({ match }) {
 
   return (
     <div className="BlogSite">
-      <Blog blog={blog} changeComments={changeComments.bind(this)} />
+      <Blog blog={blog} />
       <Comments comments={blog.comments} />
       <CommentForm commentSubmit={commentSubmit.bind(this)} />
     </div>
