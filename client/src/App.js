@@ -8,6 +8,7 @@ import About from "./Components/About";
 import Blogs from "./Components/Blogs";
 import BlogSite from "./Components/Blogsite/BlogSite";
 import Editor from "./Components/Editor";
+import Home from "./Components/Home";
 import { ContextProvider, Context } from "./Components/CreateContextTest";
 
 function App() {
@@ -29,8 +30,6 @@ function App() {
   );
 }
 
-const Home = () => {
-  return <div>SWEET HOME ALABAMA</div>;
-};
+
 
 export default App;

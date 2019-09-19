@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import BlogLink from './BlogLink'
 
 export default function Blogs() {
   const [blogs, setBlogs] = useState([]);
@@ -18,9 +18,7 @@ export default function Blogs() {
     <div className="blogs">
       {blogs.map(blog => {
         return (
-          <div key={blog.id} style={{ marginBottom: "20px" }}>
-            <Link to={`blogs/${blog.id}`}>{blog.title} likes: {blog.likes}</Link> <br />
-          </div>
+          <BlogLink blog={blog} key={blog.id}/>
         );
       })}
     </div>

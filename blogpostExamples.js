@@ -11,7 +11,7 @@ const blogPosts = [
       }
     ],
     date: new Date(),
-    likes: 0
+    likes: 5
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const blogPosts = [
       }
     ],
     date: new Date(),
-    likes: 0
+    likes: 2
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ const blogPosts = [
       }
     ],
     date: new Date(),
-    likes: 0
+    likes: 14
   },
   {
     id: 4,
@@ -68,7 +68,7 @@ const blogPosts = [
     2019-09-18T14:56:46.217Z`,
     comments: [],
     date: new Date(),
-    likes: 0
+    likes: 4
   }
 ];
 
