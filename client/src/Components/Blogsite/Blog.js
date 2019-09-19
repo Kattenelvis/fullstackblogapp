@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Blog({ blog }) {
+export default function Blog({ blog, likeBlog }) {
 
   return (
     <div>
@@ -9,7 +9,7 @@ export default function Blog({ blog }) {
       </div>
       <div id="blogBody"></div>
       <div className="blogDate">{blog.date}</div>
-      <div className="likesCounter">Likes:{blog.likes} <button>Like</button></div>
+      <div className="likesCounter">Likes:{blog.likes} <button onClick={likeBlog}>Like</button></div>
     </div>
   );
 }

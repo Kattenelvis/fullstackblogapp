@@ -30,8 +30,15 @@ function BlogSite({ match }) {
     }
   };
 
-  const edited = newBlog =>{
-    Axios.patch()
+  const editBlog = newBlog =>{
+    Axios.patch(`${baseURL}${blog.id}`, newBlog).then(res=>
+    getData())
+  }
+
+  const likeBlog = () =>{
+    const newBlog = blog;
+    newBlog.likes++;
+    editBlog(newBlog) 
   }
 
   useEffect(() => {
@@ -40,7 +47,7 @@ function BlogSite({ match }) {
 
   return (
     <div className="BlogSite">
-      <Blog blog={blog} />
+      <Blog blog={blog} likeBlog={likeBlog.bind(this)} />
       <Comments comments={blog.comments} />
       <CommentForm commentSubmit={commentSubmit.bind(this)} />
     </div>
