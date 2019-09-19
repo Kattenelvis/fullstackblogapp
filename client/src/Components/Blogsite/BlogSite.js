@@ -30,6 +30,10 @@ function BlogSite({ match }) {
     }
   };
 
+  const edited = newBlog =>{
+    Axios.put()
+  }
+
   useEffect(() => {
     getData();
   }, []);

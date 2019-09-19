@@ -17,15 +17,25 @@ router.post("/", (req, res) => {
     body: req.body.body,
     comments: [],
     views: 6861,
-    date: new Date()
+    date: new Date(),
+    likes:0
   };
-  res.send("Success!");
+  res.send({success:true});
 
   blogPosts.push(newMember);
 });
 
-router.put("/:id", (req, res) => {
-  res.json(blogPosts.filter(post => post.id === parseInt(req.params.id)));
+router.patch("/:id", (req, res) => {
+  try{blogPosts.map(blog => {
+    if (blog.id === parseInt(req.params.id)){
+      blog = req.body
+      res.json({success:true})
+      }
+    })
+  }
+  catch{
+     res.json({success:false})
+  }
 });
 
 router.get("/:id/comments", (req, res) => {
@@ -39,7 +49,8 @@ router.post("/:id/comments", (req, res) => {
     id: randomID(),
     name: req.body.name,
     comment: req.body.comment,
-    date: new Date()
+    date: new Date(),
+    likes:0
   };
 
   res.send("success");

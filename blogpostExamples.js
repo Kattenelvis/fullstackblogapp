@@ -10,7 +10,8 @@ const blogPosts = [
         comment: "OH OHHH OHHHH"
       }
     ],
-    date: new Date()
+    date: new Date(),
+    likes: 0
   },
   {
     id: 2,
@@ -33,7 +34,8 @@ const blogPosts = [
         comment: "OH OHHH OHHHH"
       }
     ],
-    date: new Date()
+    date: new Date(),
+    likes: 0
   },
   {
     id: 3,
@@ -56,7 +58,8 @@ const blogPosts = [
         comment: "OH OHHH OHHHH"
       }
     ],
-    date: new Date()
+    date: new Date(),
+    likes: 0
   },
   {
     id: 4,
@@ -64,7 +67,8 @@ const blogPosts = [
     body: `I am simuilatin<span style="color: rgb(177, 148, 29);">g w</span><span style="color: rgb(70, 136, 98);"><span style="color: rgb(177, 148, 29);">hat would h</span>appen if bal hbalh</span><br>
     2019-09-18T14:56:46.217Z`,
     comments: [],
-    date: new Date()
+    date: new Date(),
+    likes: 0
   }
 ];
 

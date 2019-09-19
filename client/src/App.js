@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Components/Header";
 import About from "./Components/About";
 import Blogs from "./Components/Blogs";
-import BlogSite from "./Components/BlogSite";
+import BlogSite from "./Components/Blogsite/BlogSite";
 import Editor from "./Components/Editor";
 import { ContextProvider, Context } from "./Components/CreateContextTest";
 

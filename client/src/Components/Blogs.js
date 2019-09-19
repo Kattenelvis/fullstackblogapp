@@ -19,7 +19,7 @@ export default function Blogs() {
       {blogs.map(blog => {
         return (
           <div key={blog.id} style={{ marginBottom: "20px" }}>
-            <Link to={`blogs/${blog.id}`}>{blog.title}</Link> <br />
+            <Link to={`blogs/${blog.id}`}>{blog.title} likes: {blog.likes}</Link> <br />
           </div>
         );
       })}
