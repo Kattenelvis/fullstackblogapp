@@ -1,0 +1,30 @@
+@import './_values'; 
+
+.Header{
+    position: fixed;
+    top: 0;
+	background: white;
+	width: 100%;
+}
+
+.logo{
+    color:black;
+}
+
+.nav {
+
+
+	ul {  
+        list-style:none;
+        display:flex;
+        float:right;
+ 
+        li{
+            &:hover{
+                background-color: darken(white, 5%)
+            }
+            transition:background-color 0.2s;
+            padding:1em 2em;         
+        }        
+	}
+}

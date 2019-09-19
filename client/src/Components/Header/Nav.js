@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "./CreateContextTest";
+//import { Context } from "../CreateContextTest";
 
 export default function Header() {
-  const [something, setSomething] = useContext(Context);
+  //const [something, setSomething] = useContext(Context);
   return (
-    <div>
+    <div className="nav">
       <ul>
         <Link to="/">
           <li>Home</li>

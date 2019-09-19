@@ -1,9 +1,10 @@
 import React from "react";
 import "./App.css";
+import "./css/index.css"
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Header from "./Components/Header";
+import Header from "./Components/Header/Header";
 import About from "./Components/About";
 import Blogs from "./Components/Blogs";
 import BlogSite from "./Components/Blogsite/BlogSite";
