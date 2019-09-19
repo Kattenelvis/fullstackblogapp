@@ -1,4 +1,4 @@
-const blogPosts = [
+let blogPosts = [
   {
     id: 1,
     title: "Happy Feet",

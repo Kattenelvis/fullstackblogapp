@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const blogPosts = require("../blogpostExamples");
+let blogPosts = require("../blogpostExamples");
 
 router.get("/", (req, res) => {
   res.json(blogPosts);
@@ -26,15 +26,18 @@ router.post("/", (req, res) => {
 });
 
 router.patch("/:id", (req, res) => {
-  try{blogPosts.map(blog => {
-    if (blog.id === parseInt(req.params.id)){
-      blog = req.body
-      res.json({success:true})
+  try{
+    blogPosts.map(blog => {
+      if (blog.id === parseInt(req.params.id)){
+        blog.likes = req.body.likes
       }
     })
+    console.log(blogPosts)
+    res.json({success:true})
   }
-  catch{
-     res.json({success:false})
+  catch(e){
+    console.log(e)
+    res.json({success:false})
   }
 });
 
