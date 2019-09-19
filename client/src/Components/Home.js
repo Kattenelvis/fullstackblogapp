@@ -17,8 +17,9 @@ export default function Home  ()  {
     getTopRated();
 
     return <div>
-        <div><BlogLink key={topRated[0].id} blog={topRated[0]}/></div>
-        <div>{topRated[1].title}</div>
-        <div>{topRated[2].title}</div>
+        <h1>HOT BLOGS</h1>
+        <div><BlogLink blog={topRated[0]}/></div>
+        <div><BlogLink blog={topRated[1]}/></div>
+        <div><BlogLink blog={topRated[2]}/></div>
     </div>;
   };

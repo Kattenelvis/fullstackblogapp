@@ -16,11 +16,14 @@ export default function Blogs() {
 
   return (
     <div className="blogs">
+      <h1>ALL BLOGS</h1>
+      <div>
       {blogs.map(blog => {
         return (
           <BlogLink blog={blog} key={blog.id}/>
         );
       })}
+      </div>
     </div>
   );
 }
