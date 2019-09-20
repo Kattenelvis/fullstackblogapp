@@ -27,8 +27,9 @@ export default function Editor() {
 
     const body = e.target.querySelector("#textField").innerHTML;
     const title = e.target[2].value;
+    const image = e.target[3].value;
 
-    Axios.post(baseURL, { title, body });
+    Axios.post(baseURL, { title, body, image });
   };
 
   const setFocus = () => {
@@ -42,6 +43,10 @@ export default function Editor() {
         <input id="bold" type="button" value="B" />
         <label>
           Title:
+          <input required />
+        </label>
+        <label>
+          Image Link:
           <input required />
         </label>
         <div

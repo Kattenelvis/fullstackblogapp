@@ -22,6 +22,6 @@ export default function Home  ()  {
             <div><BlogLink blog={topRated[0]}/></div>
             <div><BlogLink blog={topRated[1]}/></div>
             <div><BlogLink blog={topRated[2]}/></div>
-        </div>;
+        </div>
     </div>
   };

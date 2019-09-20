@@ -48,6 +48,7 @@ function BlogSite({ match }) {
   return (
     <div className="BlogSite">
       <Blog blog={blog} likeBlog={likeBlog.bind(this)} />
+      <hr/>
       <Comments comments={blog.comments} />
       <CommentForm commentSubmit={commentSubmit.bind(this)} />
     </div>

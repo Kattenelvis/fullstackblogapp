@@ -2,7 +2,7 @@ const blogPosts = [
 	{
 		id: 1,
 		title: 'Happy Feet',
-    body: `<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptatibus sed expedita ratione? Vero, maiores! Voluptatum odio corporis itaque modi ullam fugiat error.</h2>
+    	body: `<h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur voluptatibus sed expedita ratione? Vero, maiores! Voluptatum odio corporis itaque modi ullam fugiat error.</h2>
     
       <p>Corrupti, beatae? Assumenda, quibusdam. Consequuntur quaerat deserunt nesciunt voluptates quae? Laboriosam id quaerat quod nihil labore praesentium nobis officiis! 
       Repellendus illo rem veritatis vero eius facere dolorum iste laborum unde dolor illum quo enim minus quaerat, quam voluptas natus? Eligendi, placeat beatae hic id maiores 

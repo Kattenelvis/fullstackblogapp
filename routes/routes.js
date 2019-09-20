@@ -18,7 +18,8 @@ router.post("/", (req, res) => {
     comments: [],
     views: 6861,
     date: new Date(),
-    likes:0
+    likes:0,
+    image: req.body.image
   };
   res.send({success:true});
 

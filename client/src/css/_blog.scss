@@ -3,6 +3,11 @@
     line-height: 1.7em;
     margin:auto;
     text-align: center;
+    .blogTitle{
+        h1{
+            font-size: 4rem;
+        }
+    }
 }
 
 .blogList{
@@ -11,6 +16,14 @@
     h1{
         font-size:2.7rem;
     }
+}
+
+hr{
+    opacity:0.2;
+    width:90%;
+    color: nth($colors, 2);
+    height:10%;
+    margin:3rem auto;
 }
 
 
