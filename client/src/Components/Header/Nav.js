@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 export default function Header() {
   //const [something, setSomething] = useContext(Context);
   return (
-    <div className="nav">
-      <ul>
+  
+      <ul className="nav">
         <Link to="/">
           <li>Home</li>
         </Link>
@@ -17,6 +17,6 @@ export default function Header() {
           <li>Make your own Blog</li>
         </Link>
       </ul>
-    </div>
+  
   );
 }

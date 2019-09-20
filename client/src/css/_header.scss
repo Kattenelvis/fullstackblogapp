@@ -1,0 +1,29 @@
+.Header{
+
+    height:4rem;
+
+	background: nth($colors, 3);
+	width: 100%;
+}
+
+.logo{
+    color:black;
+    float: left;
+}
+
+.nav {
+
+    float: left;
+    list-style:none;
+    display:flex;
+    float:right;
+
+    li{
+        &:hover{
+            background-color: darken(nth($colors, 3), 5%)
+        }
+        transition:background-color 0.2s;
+        padding:0.96em 2em;         
+    }        
+
+}
