@@ -2,10 +2,15 @@
   height: 4rem;
   background: #029AE5;
   width: 100%;
+  color: white;
+}
+
+.Header a {
+  color: white;
+  text-decoration: none;
 }
 
 .logo {
-  color: black;
   float: left;
 }
 
@@ -19,18 +24,71 @@
 }
 
 .nav li {
-  -webkit-transition: background-color 0.2s;
-  transition: background-color 0.2s;
-  padding: 0.96em 2em;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  padding: 1em 1em 0.8em 1em;
+  display: table-cell;
+  vertical-align: center;
 }
 
 .nav li:hover {
   background-color: #0289cc;
 }
 
+.theBlog {
+  width: 70%;
+  line-height: 1.7em;
+  margin: auto;
+  text-align: center;
+}
+
+.blogList {
+  width: 80%;
+  margin: auto;
+}
+
+.blogList h1 {
+  font-size: 2.7rem;
+}
+
+.blogs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: auto;
+}
+
+.blogs .blogLink {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-bottom: 3rem;
+  background: white;
+  height: 13.4rem;
+}
+
+.blogs .blogLink img {
+  margin: 2rem;
+  max-width: 150px;
+  float: left;
+}
+
+.blogs .blogLink h2 {
+  float: left;
+}
+
+.blogs .blogLink div {
+  float: left;
+  margin-top: 180px;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #e6e6e6;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  background: #f0f0f0;
   padding: 0;
   margin: 0;
   margin-top: -1.4em;

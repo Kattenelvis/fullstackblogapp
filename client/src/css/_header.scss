@@ -1,15 +1,21 @@
 .Header{
-
     height:4rem;
-
 	background: nth($colors, 3);
-	width: 100%;
+    width: 100%;
+    color:white;
+
+    a{
+        color:darken(white, 0%);
+        text-decoration: none;
+    }
+    
 }
 
 .logo{
-    color:black;
+
     float: left;
 }
+
 
 .nav {
 
@@ -22,8 +28,10 @@
         &:hover{
             background-color: darken(nth($colors, 3), 5%)
         }
-        transition:background-color 0.2s;
-        padding:0.96em 2em;         
+        transition:background-color 0.3s;
+        padding:1em 1em 0.8em 1em;
+        display:table-cell;
+        vertical-align: center;
     }        
 
 }

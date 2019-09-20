@@ -16,10 +16,12 @@ export default function Home  ()  {
     }
     getTopRated();
 
-    return <div>
+    return <div className="blogList">
         <h1>HOT BLOGS</h1>
-        <div><BlogLink blog={topRated[0]}/></div>
-        <div><BlogLink blog={topRated[1]}/></div>
-        <div><BlogLink blog={topRated[2]}/></div>
-    </div>;
+        <div className="blogs">
+            <div><BlogLink blog={topRated[0]}/></div>
+            <div><BlogLink blog={topRated[1]}/></div>
+            <div><BlogLink blog={topRated[2]}/></div>
+        </div>;
+    </div>
   };

@@ -16,13 +16,13 @@ export default function Comments({ commentSubmit }) {
     <div className="commentForm" onSubmit={commentSubmit}>
       <form>
         <label>
-          Name: <input onChange={onNameChange} value={name} type="text"></input>
+          Name: <input required onChange={onNameChange} value={name} type="text"></input>
         </label>
         <label>
           Comment:{" "}
-          <textarea onChange={onCommentChange} value={comment}></textarea>
+          <textarea required onChange={onCommentChange} value={comment}></textarea>
         </label>
-        <button type="submit">Send Comment</button>
+        <button  type="submit">Send Comment</button>
       </form>
     </div>
   );
