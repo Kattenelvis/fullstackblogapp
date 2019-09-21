@@ -14,20 +14,22 @@ function BlogSite({ match }) {
 
     const name = e.target[0].value;
     const comment = e.target[1].value;
-
     Axios.post(`${baseURL}${match.params.id}/comments`, {
       name,
       comment
     }).then(res => getData());
   };
 
-  const getData = async () => {
-    const { data } = await Axios.get(`${baseURL}${match.params.id}`);
-    if (data[0] !== undefined) {
-      const blogb = document.getElementById("blogBody");
-      blogb.innerHTML = data[0].body;
-      setBlog(data[0]);
-    }
+  const getData = () => {
+    Axios.get(`${baseURL}${match.params.id}`)
+    .then(({data}) => {
+      if (data !== undefined) {
+        const blogb = document.getElementById("blogBody");
+        blogb.innerHTML = data.body;
+        setBlog(data);
+      }}
+    );
+
   };
 
   const editBlog = newBlog =>{

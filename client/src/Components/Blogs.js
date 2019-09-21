@@ -3,11 +3,9 @@ import BlogLink from './BlogLink';
 
 export default function Blogs() {
 	const [ blogs, setBlogs ] = useState([]);
-	let i = 0;
 	const getData = async () => {
 		const data = await fetch('http://localhost:5000/api/blogposts');
 		const blogs = await data.json();
-		i++;
 		setBlogs(blogs);
 
 	};
@@ -23,7 +21,7 @@ export default function Blogs() {
 			<div className="blogs">
 				<div>
 					{blogs.map((blog) => {
-						return <BlogLink blog={blog} key={blog.id} />;
+						return <BlogLink blog={blog} key={blog._id} />;
 					})}
 				</div>
 			</div>

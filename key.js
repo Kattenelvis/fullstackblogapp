@@ -1,0 +1,1 @@
+module.exports = {ATLAS_URI:"mongodb+srv://Katten:1234@mycluster-feumr.mongodb.net/Blog-App?retryWrites=true&w=majority"}

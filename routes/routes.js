@@ -1,29 +1,23 @@
 const express = require("express");
 const router = express.Router();
 let blogPosts = require("../blogpostExamples");
+const BlogSchema = require('../blogSchema')
 
 router.get("/", (req, res) => {
-  res.json(blogPosts);
+  BlogSchema.find().then(items => res.json(items))
 });
 
 router.get("/:id", (req, res) => {
-  res.json(blogPosts.filter(post => post.id === parseInt(req.params.id)));
+  BlogSchema.findById(req.params.id).then(item => res.json(item))
 });
 
 router.post("/", (req, res) => {
-  const newMember = {
-    id: randomID(),
-    title: req.body.title,
-    body: req.body.body,
-    comments: [],
-    views: 6861,
-    date: new Date(),
-    likes:0,
-    image: req.body.image
-  };
-  res.send({success:true});
-
-  blogPosts.push(newMember);
+  const newBlog = new BlogSchema({
+    title:req.body.title,
+    body:req.body.body,
+    image:req.body.image
+  }) 
+  newBlog.save().then(item => res.json(item))
 });
 
 router.patch("/:id", (req, res) => {

@@ -1,6 +1,5 @@
 import React from "react";
 import Axios from "axios";
-import { NONAME } from "dns";
 
 const baseURL = "http://localhost:5000/api/blogposts/";
 
