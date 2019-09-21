@@ -8,7 +8,6 @@ export default function BlogLink({ blog }) {
 		<Link to={`blogs/${blog.id}`}>
 			<div className="blogLink">
 				<img src={blog.image} alt="" />
-
 				<h2>{blog.title}</h2>
 				<div className="likes">likes: {blog.likes}</div>
 			</div>

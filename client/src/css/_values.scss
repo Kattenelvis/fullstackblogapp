@@ -1,3 +1,9 @@
 
 
 $colors: #9AD7F5, #4EB8ED, #029AE5, #016CA0, #013E5C;
+
+@mixin mobile{
+    @media(max-width:600px){
+        @content
+    }
+}

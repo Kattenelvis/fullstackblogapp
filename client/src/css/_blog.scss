@@ -35,9 +35,11 @@ hr{
     a{
         color:nth($colors, 5);
         transition: color 0.3s;
+        text-decoration: none;
 
         &:hover{
-            color:nth($colors, 4)
+            color:nth($colors, 4);
+            text-decoration: underline;
         }
     }
 
@@ -46,31 +48,38 @@ hr{
         flex:1;
         margin-bottom:3rem;
         background:white;
-        height:13.4rem;
         border-radius: 10px;
         box-shadow: 2px 3px 12px  rgba(0,0,0,00.1);
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: auto;
+        grid-template-areas: 
+        "img img title title title title title title title title title likes";
+    
 
+        grid-template-areas: 
+        "img img img img"
+        "title title title"
+        ". likes . ."; 
         
 
         img{
-
+            display: inline-block;
             margin:2rem;
             max-width: 150px;
+            grid-area: img;
 
-            float:left;
         }
         
         h2{
-            float:left;
             font-size:2.8rem;
+            text-align: center;
+            grid-area:title;
         }
-
-        div{
-            float:left;
-            margin-top: 180px;        
-        }
-
-
         
+        div{
+            display: inline-block;
+            grid-area:likes;
+        }
     }
 }

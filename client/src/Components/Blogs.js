@@ -7,15 +7,15 @@ export default function Blogs() {
 	const getData = async () => {
 		const data = await fetch('http://localhost:5000/api/blogposts');
 		const blogs = await data.json();
-
 		i++;
 		setBlogs(blogs);
-	};
 
-	//useEffect(() => {
+	};
+	
+	useEffect(() => {
 		getData();
 		
-	//}, []);
+	}, []);
 
 	return (
 		<div className="blogList">

@@ -12,17 +12,42 @@
   text-decoration: none;
 }
 
+@media (max-width: 600px) {
+  .Header {
+    height: 17rem;
+    position: relative;
+  }
+}
+
 .logo {
   float: left;
 }
 
+@media (max-width: 600px) {
+  .logo {
+    float: none;
+  }
+}
+
 .nav {
-  float: left;
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  float: right;
+}
+
+@media (max-width: 600px) {
+  .nav {
+    display: block;
+    float: none;
+    width: 100%;
+    text-align: center;
+    margin-right: 200px;
+    text-indent: 0;
+    margin: 0;
+    padding: 0 !important;
+    list-style-position: outside;
+  }
 }
 
 .nav li {
@@ -31,6 +56,12 @@
   padding: 1em 1em 0.8em 1em;
   display: table-cell;
   vertical-align: center;
+}
+
+@media (max-width: 600px) {
+  .nav li {
+    display: block;
+  }
 }
 
 .nav li:hover {
@@ -80,10 +111,12 @@ hr {
   color: #013E5C;
   -webkit-transition: color 0.3s;
   transition: color 0.3s;
+  text-decoration: none;
 }
 
 .blogs a:hover {
   color: #016CA0;
+  text-decoration: underline;
 }
 
 .blogs .blogLink {
@@ -92,26 +125,43 @@ hr {
           flex: 1;
   margin-bottom: 3rem;
   background: white;
-  height: 13.4rem;
   border-radius: 10px;
   -webkit-box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.1);
           box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.1);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+      grid-template-areas: "img img title title title title title title title title title likes";
+      grid-template-areas: "img img img img" "title title title" ". likes . .";
 }
 
 .blogs .blogLink img {
+  display: inline-block;
   margin: 2rem;
   max-width: 150px;
-  float: left;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: img;
 }
 
 .blogs .blogLink h2 {
-  float: left;
   font-size: 2.8rem;
+  text-align: center;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: title;
 }
 
 .blogs .blogLink div {
-  float: left;
-  margin-top: 180px;
+  display: inline-block;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: likes;
 }
 
 body {
@@ -121,6 +171,7 @@ body {
   margin: 0;
   margin-top: -1.4em;
   font-size: 1.1rem;
+  overflow-x: hidden;
 }
 
 main {

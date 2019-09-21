@@ -9,31 +9,54 @@
     a{
         color:darken(white, 0%);
         text-decoration: none;
+
+
     }
     
+    @include mobile{
+        height:17rem;
+        position:relative;
+        
+    }
 }
 
 .logo{
-
     float: left;
+    @include mobile{
+        float:none;
+    }
 }
 
 
 .nav {
-
-    float: left;
     list-style:none;
     display:flex;
-    float:right;
+
+    @include mobile{
+        display:block;
+        float:none;
+        width:100%;
+        text-align: center;
+        margin-right:200px;
+        text-indent: 0;
+        margin:0;
+        padding:0 !important;
+        list-style-position: outside;
+    }
 
     li{
-        &:hover{
-            background-color: darken(nth($colors, 3), 5%)
-        }
         transition:background-color 0.3s;
         padding:1em 1em 0.8em 1em;
         display:table-cell;
         vertical-align: center;
-    }        
+        
+        @include mobile{
+            display:block;
 
+        }
+        &:hover{
+            background-color: darken(nth($colors, 3), 5%)
+
+        }
+    }        
 }
