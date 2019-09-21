@@ -5,18 +5,16 @@
 @import './comment';
 
 body{
-    font-family: Montserrat, Arial, Helvetica, sans-serif;
-    background: darken(white, 6%);
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  background: darken(white, 6%);
 
-    padding: 0;
-    margin: 0;
-    margin-top:-1.4em;
-    font-size: 1.1rem;
-    overflow-x: hidden;
-    
-  }
+  padding: 0;
+  margin: 0;
+  margin-top:-1.4em;
+  font-size: 1.1rem;
+  overflow-x: hidden;
+}
 
 main{
-
   margin-top: 8rem;
 }

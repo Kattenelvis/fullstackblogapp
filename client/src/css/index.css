@@ -22,7 +22,8 @@
 }
 
 .logo {
-  margin-left: 30px;
+  margin-left: 29px;
+  margin-top: 17px;
   height: 1.7rem;
 }
 
@@ -70,6 +71,7 @@
   line-height: 1.7em;
   margin: auto;
   text-align: center;
+  max-width: 1300px;
 }
 
 .theBlog .blogTitle h1 {
@@ -79,6 +81,7 @@
 
 .blogList {
   width: 80%;
+  max-width: 1300px;
   margin: auto;
 }
 
@@ -153,6 +156,7 @@ hr {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: title;
+  margin-top: 20px;
 }
 
 .blogs .blogLink div {
@@ -160,6 +164,7 @@ hr {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: likes;
+  margin-top: 27px;
 }
 
 .actionButton, .actionButton-small {
@@ -202,6 +207,7 @@ hr {
           box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.12);
   margin-bottom: 40px;
   border-radius: 5px;
+  max-width: 800px;
 }
 
 .comment h2 {

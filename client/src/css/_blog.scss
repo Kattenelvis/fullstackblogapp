@@ -3,6 +3,7 @@
     line-height: 1.7em;
     margin:auto;
     text-align: center;
+    max-width: 1300px;
     .blogTitle{
         h1{
             font-size: 4rem;
@@ -13,6 +14,7 @@
 
 .blogList{
     width:80%;
+    max-width: 1300px;
     margin:auto;
     h1{
         font-size:2.7rem;
@@ -79,11 +81,13 @@ hr{
             font-size:2.8rem;
             text-align: center;
             grid-area:title;
+            margin-top:20px;
         }
         
         div{
             display: inline-block;
             grid-area:likes;
+            margin-top:27px;
         }
     }
 }
