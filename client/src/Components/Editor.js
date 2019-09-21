@@ -15,19 +15,25 @@ export default function Editor() {
   window.addEventListener(
     "load",
     () => {
-      document.querySelector("#bold").addEventListener("click", () => {
-        document.execCommand("Bold");
-        setFocus();
-      });
+      handleButtonClicks("#bold", "Bold");
+      handleButtonClicks("#italic", "Italic");
+      handleButtonClicks("#under", "Underline");
     },
     false
   );
+
+  const handleButtonClicks = (id, command) =>{
+    document.querySelector(id).addEventListener("click", () => {
+      document.execCommand(command);
+      setFocus();
+    });
+  }
 
   const publishBlog = e => {
     e.preventDefault();
 
     const body = e.target.querySelector("#textField").innerHTML;
-    const title = e.target[2].value;
+    const title = e.target[4].value;
     const image = e.target[3].value;
 
     Axios.post(baseURL, { title, body, image });
@@ -42,6 +48,8 @@ export default function Editor() {
       <form onSubmit={publishBlog}>
         <input style={{border:"none"}} type="color" onChange={changeColor} />
         <input id="bold" type="button" value="B" className="actionButton-small" />
+        <input id="italic" type="button" value="I" className="actionButton-small" />
+        <input id="under" type="button" value="U" className="actionButton-small" />
         <label>
           Title:
           <input maxLength="80" required />
