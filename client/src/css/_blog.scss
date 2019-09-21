@@ -27,6 +27,7 @@ hr{
 }
 
 
+//For blog link
 .blogs{
     display:flex;
     flex-direction: column;
@@ -38,8 +39,10 @@ hr{
         text-decoration: none;
 
         &:hover{
-            color:nth($colors, 4);
-            text-decoration: underline;
+            h2{
+                color:nth($colors, 4);
+                text-decoration: underline;
+            }
         }
     }
 

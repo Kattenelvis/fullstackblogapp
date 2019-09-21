@@ -13,17 +13,18 @@ export default function Comments({ commentSubmit }) {
   };
 
   return (
-    <div className="commentForm" onSubmit={commentSubmit}>
-      <form>
-        <label>
-          Name: <input required onChange={onNameChange} value={name} type="text"></input>
+      <form className="commentForm" onSubmit={commentSubmit}>
+        <h1>Leave a comment</h1>
+        <label className="nameField">
+          Name: <input maxLength="30" required onChange={onNameChange} value={name} type="text"></input>
         </label>
-        <label>
-          Comment:{" "}
-          <textarea required onChange={onCommentChange} value={comment}></textarea>
+        <br/>
+        <label className="commentField">
+          Comment:{'  '}
+          <br/>
+          <textarea maxLength="1000" required onChange={onCommentChange} value={comment}></textarea>
         </label>
-        <button  type="submit">Send Comment</button>
+        <button  type="submit" className="actionButton">Send Comment</button>
       </form>
-    </div>
   );
 }

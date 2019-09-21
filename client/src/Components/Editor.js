@@ -1,5 +1,6 @@
 import React from "react";
 import Axios from "axios";
+import { NONAME } from "dns";
 
 const baseURL = "http://localhost:5000/api/blogposts/";
 
@@ -39,8 +40,8 @@ export default function Editor() {
   return (
     <div>
       <form onSubmit={publishBlog}>
-        <input type="color" onChange={changeColor} />
-        <input id="bold" type="button" value="B" />
+        <input style={{border:"none"}} type="color" onChange={changeColor} />
+        <input id="bold" type="button" value="B" className="actionButton-small" />
         <label>
           Title:
           <input required />
@@ -62,7 +63,7 @@ export default function Editor() {
           }}
         ></div>
         <div></div>
-        <button type="submit">Publish</button>
+        <button type="submit" className="actionButton">Publish</button>
       </form>
     </div>
   );

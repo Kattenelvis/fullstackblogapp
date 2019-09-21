@@ -114,7 +114,7 @@ hr {
   text-decoration: none;
 }
 
-.blogs a:hover {
+.blogs a:hover h2 {
   color: #016CA0;
   text-decoration: underline;
 }
@@ -162,6 +162,67 @@ hr {
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   grid-area: likes;
+}
+
+.actionButton, .actionButton-small {
+  background: #4EB8ED;
+  border: none;
+  width: 6rem;
+  height: 2.5rem;
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.12);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.12);
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+}
+
+.actionButton:hover, .actionButton-small:hover {
+  background: #32adea;
+}
+
+.actionButton:active, .actionButton-small:active {
+  background: #20a5e8;
+}
+
+.actionButton-small {
+  width: 3rem;
+  height: 1.5rem;
+}
+
+.commentForm {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 300px;
+  width: 90%;
+  margin: auto;
+  -webkit-box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.12);
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.12);
+  margin-bottom: 40px;
+  border-radius: 5px;
+}
+
+.commentForm h1 {
+  margin: 20px auto 20px auto;
+}
+
+.commentForm .nameField {
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+.commentForm .commentField {
+  margin: auto;
+  resize: none;
+}
+
+.commentForm button {
+  margin: 30px auto 20px auto;
 }
 
 body {
