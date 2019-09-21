@@ -3,16 +3,19 @@ import BlogLink from './BlogLink';
 
 export default function Blogs() {
 	const [ blogs, setBlogs ] = useState([]);
-
+	let i = 0;
 	const getData = async () => {
 		const data = await fetch('http://localhost:5000/api/blogposts');
 		const blogs = await data.json();
+
+		i++;
 		setBlogs(blogs);
 	};
 
-	useEffect(() => {
+	//useEffect(() => {
 		getData();
-	}, []);
+		
+	//}, []);
 
 	return (
 		<div className="blogList">

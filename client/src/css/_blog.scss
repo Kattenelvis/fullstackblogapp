@@ -32,13 +32,25 @@ hr{
     flex-direction: column;
     overflow:auto;
     
+    a{
+        color:nth($colors, 5);
+        transition: color 0.3s;
+
+        &:hover{
+            color:nth($colors, 4)
+        }
+    }
+
     .blogLink{
 
         flex:1;
         margin-bottom:3rem;
         background:white;
         height:13.4rem;
-    
+        border-radius: 10px;
+        box-shadow: 2px 3px 12px  rgba(0,0,0,00.1);
+
+        
 
         img{
 
@@ -50,6 +62,7 @@ hr{
         
         h2{
             float:left;
+            font-size:2.8rem;
         }
 
         div{

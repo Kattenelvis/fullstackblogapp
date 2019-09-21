@@ -3,6 +3,8 @@
 	background: nth($colors, 3);
     width: 100%;
     color:white;
+    position:fixed;
+    top:0;
 
     a{
         color:darken(white, 0%);

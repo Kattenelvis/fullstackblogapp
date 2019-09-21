@@ -3,6 +3,8 @@
   background: #029AE5;
   width: 100%;
   color: white;
+  position: fixed;
+  top: 0;
 }
 
 .Header a {
@@ -74,6 +76,16 @@ hr {
   overflow: auto;
 }
 
+.blogs a {
+  color: #013E5C;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.blogs a:hover {
+  color: #016CA0;
+}
+
 .blogs .blogLink {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -81,6 +93,9 @@ hr {
   margin-bottom: 3rem;
   background: white;
   height: 13.4rem;
+  border-radius: 10px;
+  -webkit-box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.1);
+          box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.1);
 }
 
 .blogs .blogLink img {
@@ -91,6 +106,7 @@ hr {
 
 .blogs .blogLink h2 {
   float: left;
+  font-size: 2.8rem;
 }
 
 .blogs .blogLink div {
@@ -105,5 +121,9 @@ body {
   margin: 0;
   margin-top: -1.4em;
   font-size: 1.1rem;
+}
+
+main {
+  margin-top: 7rem;
 }
 /*# sourceMappingURL=index.css.map */
