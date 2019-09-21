@@ -1,13 +1,35 @@
-.commentForm{
+.commentStyling{
     background:white;
     display:flex;
     flex-direction: column;
-    margin-bottom:300px;
     width:90%;
     margin:auto;
     box-shadow: 2px 2px 5px rgba(0,0,0,00.12);
     margin-bottom: 40px;
     border-radius: 5px;
+}
+
+
+.comment{
+
+    @extend .commentStyling;
+
+    h2{
+        margin-left:5%;
+    }
+    p{
+        margin-left:5%;
+        
+    }
+
+}
+
+
+
+.commentForm{
+
+    @extend .commentStyling;
+    
     h1{
         margin: 20px auto 20px auto;
     }

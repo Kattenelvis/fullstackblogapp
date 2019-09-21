@@ -5,7 +5,7 @@ export default function Comments(test) {
     if (comments !== undefined) {
       return comments.map(com => {
         return (
-          <div key={com.id}>
+          <div key={com.id} className="comment">
             <h2>{com.name}</h2>
             <p>{com.comment}</p>
           </div>
@@ -16,5 +16,5 @@ export default function Comments(test) {
     }
   };
 
-  return <div className="comment">{comments(test.comments)}</div>;
+  return <div className="comments">{comments(test.comments)}</div>;
 }

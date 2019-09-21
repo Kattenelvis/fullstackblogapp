@@ -44,7 +44,7 @@ export default function Editor() {
         <input id="bold" type="button" value="B" className="actionButton-small" />
         <label>
           Title:
-          <input required />
+          <input maxLength="80" required />
         </label>
         <label>
           Image Link:

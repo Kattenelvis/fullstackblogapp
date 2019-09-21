@@ -1,10 +1,10 @@
 .Header{
-    height:4rem;
 	background: nth($colors, 3);
     width: 100%;
     color:white;
     position:fixed;
     top:0;
+    display:flex;
 
     a{
         color:darken(white, 0%);
@@ -21,20 +21,23 @@
 }
 
 .logo{
-    float: left;
+    margin-left:30px;
+    height:1.7rem;
     @include mobile{
-        float:none;
     }
 }
 
 
 .nav {
+    margin:0 !important;
     list-style:none;
     display:flex;
+    margin-left: 2vw;
+
 
     @include mobile{
+
         display:block;
-        float:none;
         width:100%;
         text-align: center;
         margin-right:200px;
@@ -45,9 +48,9 @@
     }
 
     li{
+
         transition:background-color 0.3s;
-        padding:1em 1em 0.8em 1em;
-        display:table-cell;
+        padding:1.7em 0.8em;
         vertical-align: center;
         
         @include mobile{
