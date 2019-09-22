@@ -1,7 +1,9 @@
 const express = require("express");
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 let blogPosts = require("../blogpostExamples");
 const BlogSchema = require('../blogSchema')
+const {verifyToken} = require('./users')
 
 router.get("/", (req, res) => {
   BlogSchema.find().then(items => res.json(items))
@@ -11,15 +13,21 @@ router.get("/:id", (req, res) => {
   BlogSchema.findById(req.params.id).then(item => res.json(item))
 });
 
-router.post("/", (req, res) => {
-  const newBlog = new BlogSchema({
-    title:req.body.title,
-    body:req.body.body,
-    image:req.body.image,
-    likes:0
-  }) 
-  
-  newBlog.save().then(item => res.json(item))
+router.post("/", verifyToken, (req, res) => {
+  let newBlog = {};
+  jwt.verify(req.token, 'secretkey', (err, data) =>{
+    if (err)  res.sendStatus(403);
+    else{
+        newBlog = new BlogSchema({
+        title:req.body.title,
+        body:req.body.body,
+        image:req.body.image,
+        likes:0
+      }) 
+      //Send to mongodb database
+      newBlog.save().then(item => res.json(item))
+    }
+  })
 });
 
 router.patch("/:id", (req, res)  => {
@@ -29,7 +37,6 @@ router.patch("/:id", (req, res)  => {
 });
 
 router.get("/:id/comments", (req, res) => {
-
   res.json(
     blogPosts.filter(post => post.id === parseInt(req.params.id))[0].comments
   );

@@ -28,6 +28,8 @@ const logger = (req, res, next) => {
 };
 
 app.use("/api/blogposts", require("./routes/routes"));
+const {routerUsers} = require('./routes/users')
+app.use('/api/users', routerUsers)
 
 app.use(logger);
 
