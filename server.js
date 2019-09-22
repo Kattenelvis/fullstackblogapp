@@ -31,17 +31,12 @@ app.use("/api/blogposts", require("./routes/routes"));
 app.use(logger);
 
 app.get("/", (req, res) => {
-  res.send("Look at /api/blogposts or /api/blogposts/[the id you want to find] or /comments on any of them");
+  res.send("Lookkk at /api/blogposts or /api/blogposts/[the id you want to find] or /comments on any of them");
 });
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server started on ${port}`));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+
 
 //  res.sendFile(path.join(__dirname), "public", "index.html");
