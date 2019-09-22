@@ -31,14 +31,11 @@ app.use("/api/blogposts", require("./routes/routes"));
 
 app.use(logger);
 
-/*app.get("/", (req, res) => {
-  res.send("Look at /api/blogposts or /api/blogposts/[the id you want to find] or /comments on any of them");
-});*/
-
-app.use(express.static(path.join(__dirname, 'client/build')))
+//ONLY USE THIS IN PRODUCTION
+/*app.use(express.static(path.join(__dirname, 'client/build')))
 app.get('*', (req, res) =>{
   res.sendFile(path.join(__dirname + '/client/build/index.html'))
-})
+})*/
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server started on ${port}`));

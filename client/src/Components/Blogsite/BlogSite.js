@@ -14,7 +14,7 @@ function BlogSite({ match }) {
 
     const name = e.target[0].value;
     const comment = e.target[1].value;
-    Axios.post(`${baseURL}/${match.params.id}/comments`, {
+    Axios.post(`${baseURL}${match.params.id}/comments`, {
       name,
       comment
     }).then(res => getData());
