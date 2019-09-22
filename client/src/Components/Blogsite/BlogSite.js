@@ -29,16 +29,15 @@ function BlogSite({ match }) {
         setBlog(data);
       }}
     );
-
   };
 
   const editBlog = newBlog =>{
-    Axios.patch(`${baseURL}${blog.id}`, newBlog).then(res=>
+    Axios.patch(`${baseURL}${blog._id}`, newBlog).then(res=>
     getData())
   }
 
   const likeBlog = () =>{
-    const newBlog = blog;
+    let newBlog = blog;
     newBlog.likes++;
     editBlog(newBlog) 
   }

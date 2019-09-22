@@ -9,14 +9,13 @@ import Blogs from "./Components/Blogs";
 import BlogSite from "./Components/Blogsite/BlogSite";
 import Editor from "./Components/Editor";
 import Home from "./Components/Home";
-import { ContextProvider, Context } from "./Components/CreateContextTest";
+//import { ContextProvider, Context } from "./Components/CreateContextTest";
 
 function App() {
 
   return (
     <div className="App">
       <Router>
-        <ContextProvider>
           <Header />
           <main>
             <Switch>
@@ -27,7 +26,6 @@ function App() {
               <Route path="/editor" component={Editor} />
             </Switch>
           </main>
-        </ContextProvider>
       </Router>
     </div>
   );

@@ -15,26 +15,21 @@ router.post("/", (req, res) => {
   const newBlog = new BlogSchema({
     title:req.body.title,
     body:req.body.body,
-    image:req.body.image
+    image:req.body.image,
+    likes:0
   }) 
+  
   newBlog.save().then(item => res.json(item))
 });
 
-router.patch("/:id", (req, res) => {
-  try{
-    blogPosts.map(blog => {
-      if (blog.id === parseInt(req.params.id)){
-        blog.likes = req.body.likes
-      }
-    })
-    res.json({success:true})
-  }
-  catch(e){
-    res.json({success:false, error:e})
-  }
+router.patch("/:id", (req, res)  => {
+  BlogSchema.findByIdAndUpdate(req.body._id, req.body, e => {
+    res.json(e)
+  })
 });
 
 router.get("/:id/comments", (req, res) => {
+
   res.json(
     blogPosts.filter(post => post.id === parseInt(req.params.id))[0].comments
   );

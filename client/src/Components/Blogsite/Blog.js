@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function Blog({ blog, likeBlog }) {
-  console.log(blog)
   return (
     <div className="theBlog">
       <div className="blogTitle">
