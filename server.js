@@ -31,7 +31,7 @@ app.use("/api/blogposts", require("./routes/routes"));
 app.use(logger);
 
 app.get("/", (req, res) => {
-  res.send("Lookkk at /api/blogposts or /api/blogposts/[the id you want to find] or /comments on any of them");
+  res.send("Look at /api/blogposts or /api/blogposts/[the id you want to find] or /comments on any of them");
 });
 
 const port = process.env.PORT || 5000;
