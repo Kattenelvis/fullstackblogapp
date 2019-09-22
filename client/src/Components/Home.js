@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import Axios from 'axios';
 import BlogLink from './BlogLink'
-
-const baseURL = "http://localhost:5000/api/blogposts/";
+import baseURL from '../baseURL';
 
 export default function Home  ()  {
     

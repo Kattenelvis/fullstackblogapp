@@ -4,7 +4,7 @@ import Comments from "./Comments";
 import CommentForm from "./CommentForm";
 import Axios from "axios";
 
-const baseURL = "http://localhost:5000/api/blogposts/";
+import baseURL from '../../baseURL';
 
 function BlogSite({ match }) {
   const [blog, setBlog] = useState({});
@@ -14,14 +14,15 @@ function BlogSite({ match }) {
 
     const name = e.target[0].value;
     const comment = e.target[1].value;
-    Axios.post(`${baseURL}${match.params.id}/comments`, {
+    Axios.post(`${baseURL}/${match.params.id}/comments`, {
       name,
       comment
     }).then(res => getData());
   };
 
   const getData = () => {
-    Axios.get(`${baseURL}${match.params.id}`)
+    
+    Axios.get(`${baseURL}/${match.params.id}`)
     .then(({data}) => {
       if (data !== undefined) {
         const blogb = document.getElementById("blogBody");

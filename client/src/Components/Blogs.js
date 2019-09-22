@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import BlogLink from './BlogLink';
+import baseURL from '../baseURL';
 
 export default function Blogs() {
 	const [ blogs, setBlogs ] = useState([]);
 	const getData = async () => {
-		const data = await fetch('http://localhost:5000/api/blogposts');
+		const data = await fetch(baseURL);
 		const blogs = await data.json();
 		setBlogs(blogs);
 

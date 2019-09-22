@@ -1,7 +1,7 @@
 import React from "react";
 import Axios from "axios";
 
-const baseURL = "http://localhost:5000/api/blogposts/";
+import baseURL from '../baseURL';
 
 export default function Editor() {
   const changeColor = e => {
