@@ -1,9 +1,10 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const router = express.Router()
-let blogPosts = require('../blogpostExamples')
-const BlogSchema = require('../blogSchema')
+const BlogSchema = require('.././Schemas/blogSchema')
 const { verifyToken } = require('./users')
+
+// /api/blogposts
 
 const app = express()
 const fileUpload = require('express-fileupload')
@@ -32,14 +33,13 @@ router.post(
 			})
 		}
 
-		//console.log(req.body)
-
 		newBlog = new BlogSchema({
 			title: req.body.title,
 			body: req.body.body,
 			image: req.body.image,
 			likes: 0
 		})
+
 		//Send to mongodb database
 		newBlog.save().then(item => res.json(item))
 		// }
@@ -54,7 +54,7 @@ router.patch('/:id', (req, res) => {
 })
 
 router.get('/:id/comments', (req, res) => {
-	res.json(blogPosts.filter(post => post.id === parseInt(req.params.id))[0].comments)
+	//res.json(blogPosts.filter(post => post.id === parseInt(req.params.id))[0].comments)
 })
 
 router.post('/:id/comments', (req, res) => {
@@ -68,9 +68,9 @@ router.post('/:id/comments', (req, res) => {
 
 	res.send('success')
 
-	blogPosts
+	/*blogPosts
 		.filter(post => post.id === parseInt(req.params.id))[0]
-		.comments.push(newComment)
+		.comments.push(newComment)*/
 })
 
 const randomID = () => {
