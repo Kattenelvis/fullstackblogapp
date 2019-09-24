@@ -7,6 +7,7 @@ const { verifyToken } = require('./users')
 // /api/blogposts
 
 const app = express()
+app.use(express.static('files'))
 const fileUpload = require('express-fileupload')
 app.use(fileUpload())
 
