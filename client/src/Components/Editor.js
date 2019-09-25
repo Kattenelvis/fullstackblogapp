@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Axios from 'axios'
+import { Redirect } from 'react-router'
 
 import baseURL from '../baseURL'
 
@@ -29,11 +30,12 @@ export default function Editor() {
 	}
 
 	let currentImage = ''
-	const publishBlog = e => {
+	const publishBlog = async e => {
 		e.preventDefault()
 		const body = e.target.querySelector('#textField').innerHTML
 		const title = e.target[4].value
-		Axios.post(baseURL, { title, body, image: currentImage })
+		const { data } = await Axios.post(baseURL, { title, body, image: currentImage })
+		window.location.href = `http://localhost:3000/blogs/${data._id}`
 	}
 
 	const setFocus = () => {

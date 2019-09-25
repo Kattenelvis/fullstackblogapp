@@ -4,6 +4,8 @@ const routerUsers = express.Router()
 const UserSchema = require('.././Schemas/userSchema')
 const bcrypt = require('bcryptjs')
 
+// api/users
+
 routerUsers.post('/', async (req, res) => {
 	/*jwt.sign({user}, 'secretkey', (err, token) =>{
         res.json({
