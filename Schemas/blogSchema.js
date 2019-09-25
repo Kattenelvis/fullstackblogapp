@@ -6,7 +6,12 @@ const blogSchema = new Schema(
 	{
 		title: { type: String, required: true },
 		body: { type: String, required: true },
-		comments: [commentSchema],
+		comments: [
+			{
+				name: { type: String, required: true },
+				comment: { type: String, required: true }
+			}
+		],
 		date: { type: Date, default: Date.now },
 		likes: { type: Number },
 		image: { type: String, required: true }

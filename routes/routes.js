@@ -38,13 +38,12 @@ router.post(
 			title: req.body.title,
 			body: req.body.body,
 			image: req.body.image,
-			likes: 0
+			likes: 0,
+			comments: []
 		})
 
 		//Send to mongodb database
 		newBlog.save().then(item => res.json(item))
-		// }
-		//});
 	}
 )
 
@@ -54,28 +53,33 @@ router.patch('/:id', (req, res) => {
 	})
 })
 
-router.get('/:id/comments', (req, res) => {
-	//res.json(blogPosts.filter(post => post.id === parseInt(req.params.id))[0].comments)
+router.get('/:id/comments', async (req, res) => {
+	try {
+		const blogComments = await BlogSchema.findById(req.params.id)
+		res.json(blogComments.comments)
+	} catch {
+		res.status(500).json({ msg: 'Server Failure' })
+	}
 })
 
-router.post('/:id/comments', (req, res) => {
+router.post('/:id/comments', async (req, res) => {
 	const newComment = {
-		id: randomID(),
 		name: req.body.name,
 		comment: req.body.comment,
-		date: new Date(),
 		likes: 0
 	}
-
-	res.send('success')
-
-	/*blogPosts
-		.filter(post => post.id === parseInt(req.params.id))[0]
-		.comments.push(newComment)*/
+	try {
+		await BlogSchema.findOneAndUpdate(
+			{ _id: req.params.id },
+			{
+				$push: { comments: newComment }
+			}
+		)
+		res.send('Success')
+	} catch (e) {
+		console.error(e)
+		res.status(500).json({ msg: 'Server Failure' })
+	}
 })
-
-const randomID = () => {
-	return Math.floor(Math.random() * 500000000000000)
-}
 
 module.exports = router
