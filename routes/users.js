@@ -7,11 +7,9 @@ const bcrypt = require('bcryptjs')
 // api/users
 
 routerUsers.post('/', async (req, res) => {
-	/*jwt.sign({user}, 'secretkey', (err, token) =>{
-        res.json({
-            token
-        })
-    });*/
+	const user = await UserSchema.findOne({ email: req.body.email })
+	if (user) return res.status(400).json({ errors: [{ msg: 'User already exists' }] })
+
 	const salt = await bcrypt.genSalt(10)
 	const hashPass = await bcrypt.hash(req.body.password, salt)
 
@@ -20,14 +18,33 @@ routerUsers.post('/', async (req, res) => {
 		email: req.body.email,
 		password: hashPass
 	})
-	newUser.save().then(data => res.json({ success: true }))
+	newUser = await newUser.save()
+	jwt.sign(newUser.id, 'secretKey', (err, token) => {
+		if (err) throw err
+		res.json({ token })
+	})
 })
 
-routerUsers.get('/', (req, res) => {
-	res.json(user)
+routerUsers.get('/', async (req, res) => {
+	const users = await UserSchema.find()
+	res.json(users)
 })
 
-routerUsers.post('/login', (req, res) => {})
+routerUsers.post('/login', async (req, res) => {
+	const { email, password } = req.body
+	const user = await UserSchema.findOne({ email })
+
+	if (!user) return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] })
+
+	const isMatch = await bcrypt.compare(password, user.password)
+	if (!isMatch) {
+		return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] })
+	}
+
+	jwt.sign(user.id, 'secretKey', (err, token) => {
+		res.json({ token })
+	})
+})
 
 function verifyToken(req, res, next) {
 	const bearerHeader = req.headers['authorization']
